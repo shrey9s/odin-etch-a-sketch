@@ -20,16 +20,14 @@ const gridContainer = document.querySelector(".grid-container");
 createGrid(16, 16);
 
 const gridSquares = document.querySelectorAll(".square");
-
 let sketchStarted = false;
 
 gridSquares.forEach((square) => {
-    square.addEventListener("click", () => {
+    square.addEventListener("mousedown", () => {
         sketchStarted = true;
         changeColour(square);
     });
 });
-
 
 gridSquares.forEach((square) => {
     square.addEventListener("mouseover", () => {
