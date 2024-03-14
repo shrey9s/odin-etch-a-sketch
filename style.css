@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
 html {
     box-sizing: border-box;
 }
@@ -14,22 +16,30 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    font-family: "Pixelify Sans", sans-serif;
 }
 
 .grid-container {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
     border: 1px solid gray;
-  
+    
 }
 
 .row {
     display: flex;
 }
 
-
 .square {
     width: 36px;
     height: 36px;
     border: 1px solid gray;
+}
+
+.start-btn {
+    padding: 12px 24px;
+    font-size: 40px;
+    font-family: "Pixelify Sans", sans-serif;
 }
