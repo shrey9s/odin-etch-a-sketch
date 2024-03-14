@@ -5,7 +5,6 @@ function createGrid(numRows, numColumns) {
         for (let j = 0; j < numColumns; j++) {
             const square = document.createElement("div");
             square.classList.add("square");
-            //square.textContent = `(${i}, ${j})`;
             row.appendChild(square);
         }
         gridContainer.appendChild(row);
@@ -21,10 +20,24 @@ const gridContainer = document.querySelector(".grid-container");
 createGrid(16, 16);
 
 const gridSquares = document.querySelectorAll(".square");
+
+let sketchStarted = false;
+
+gridSquares.forEach((square) => {
+    square.addEventListener("click", () => {
+        sketchStarted = true;
+        changeColour(square);
+    });
+});
+
+
 gridSquares.forEach((square) => {
     square.addEventListener("mouseover", () => {
-        if (!square.style.backgroundColor) {
+        if (sketchStarted && !square.style.backgroundColor) {
             changeColour(square);
         }
     });
 });
+
+
+
