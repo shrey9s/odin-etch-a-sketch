@@ -1,22 +1,35 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
 body {
+    margin: 0;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .grid-container {
-    width: 50vw;
-    height: 50vh;
     display: flex;
-    flex-wrap: wrap;
-    border: 1px solid black;
- 
+    flex-direction: column;
+    border: 1px solid red;
 }
 
+.row {
+    display: flex;
+    border: 1px solid blue;
+}
+
+
 .square {
-    width: 20px;
-    height: 20px;
-    border: 1px solid black;
+    width: 36px;
+    height: 36px;
+    border: 1px solid green;
 }
