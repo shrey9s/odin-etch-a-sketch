@@ -24,8 +24,12 @@ let sketchStarted = false;
 
 gridSquares.forEach((square) => {
     square.addEventListener("mousedown", () => {
-        sketchStarted = true;
-        changeColour(square);
+        if (sketchStarted) {
+            sketchStarted = false;  // stop sketch
+        } else {
+            sketchStarted = true;
+            changeColour(square);  // start sketch
+        }
     });
 });
 
