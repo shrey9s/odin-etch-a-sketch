@@ -23,6 +23,8 @@ createGrid(16, 16);
 const gridSquares = document.querySelectorAll(".square");
 gridSquares.forEach((square) => {
     square.addEventListener("mouseover", () => {
-        changeColour(square);
+        if (!square.style.backgroundColor) {
+            changeColour(square);
+        }
     });
 });
