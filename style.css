@@ -19,17 +19,17 @@ body {
 .grid-container {
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
+    border: 1px solid gray;
+  
 }
 
 .row {
     display: flex;
-    border: 1px solid blue;
 }
 
 
 .square {
     width: 36px;
     height: 36px;
-    border: 1px solid green;
+    border: 1px solid gray;
 }

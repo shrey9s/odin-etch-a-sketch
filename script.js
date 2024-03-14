@@ -1,4 +1,3 @@
-// Create 16x16 grid of square divs
 function createGrid(numRows, numColumns) {
     for (let i = 0; i < numRows; i++) {
         const row = document.createElement("div");
@@ -13,5 +12,17 @@ function createGrid(numRows, numColumns) {
     }
 }
 
+function changeColour(square) {
+    const randomColour = "#" + (Math.floor(Math.random() * 16777215)).toString(16);    // from CSS-Tricks
+    square.style.backgroundColor = randomColour;
+}
+
 const gridContainer = document.querySelector(".grid-container");
 createGrid(16, 16);
+
+const gridSquares = document.querySelectorAll(".square");
+gridSquares.forEach((square) => {
+    square.addEventListener("mouseover", () => {
+        changeColour(square);
+    });
+});
