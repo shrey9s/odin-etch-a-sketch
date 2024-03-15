@@ -52,11 +52,11 @@ function getGridSize() {
         numRows = gridValues[0];
         numColumns = gridValues[1];
     }
-    console.log(numRows, numColumns);
+    createGrid(numRows, numColumns);
 }
 
-const startBtn = document.querySelector(".start-btn");
-startBtn.addEventListener("click", getGridSize);
+const gridSizeBtn = document.querySelector(".btn");
+gridSizeBtn.addEventListener("click", getGridSize);
 
 
 
