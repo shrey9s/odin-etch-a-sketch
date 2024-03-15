@@ -21,9 +21,10 @@ body {
 }
 
 .grid-container {
+    width: 610px;
+    height: 610px;
     display: flex;
-    min-width: 610px;
-    min-height: 610px;
+    flex-shrink: 0;
     flex-direction: column;
     margin-top: 20px;
     border: 1px solid lightgray;
