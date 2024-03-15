@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 
-/*html {
+html {
     box-sizing: border-box;
 }
 
@@ -8,7 +8,7 @@
 *::before,
 *::after {
     box-sizing: inherit;
-}*/
+}
 
 body {
     margin: 0;
@@ -21,22 +21,21 @@ body {
 }
 
 .grid-container {
-    width: 610px;
-    height: 610px;
     display: flex;
+    min-width: 610px;
+    min-height: 610px;
     flex-direction: column;
     margin-top: 20px;
-    border: 1px solid gray;
-    box-sizing: border-box;
+    border: 1px solid lightgray;
 }
 
 .row {
+    flex: 1;
     display: flex;
 }
 
 .square {
-    width: 36px;
-    height: 36px;
+    flex: 1;
     border: 1px solid lightgray;
 }
 
