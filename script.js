@@ -48,15 +48,25 @@ function getGridSize() {
     let numColumns = gridValues[1];
     while (numRows > 100 || numColumns > 100) {
         userInput = prompt("The number of rows/columns have to be <=100! Please choose again.");
-        gridValues = (userInput.split("x")).map((x) => parseInt(x));
+        gridValues = (userInput.split("x")).map((n) => parseInt(n));
         numRows = gridValues[0];
         numColumns = gridValues[1];
     }
     createGrid(numRows, numColumns);
 }
 
+function removeGrid() {
+    const rows = document.querySelectorAll(".row");
+    rows.forEach((row) => {
+        gridContainer.removeChild(row);
+    });
+}
+
 const gridSizeBtn = document.querySelector(".btn");
-gridSizeBtn.addEventListener("click", getGridSize);
+gridSizeBtn.addEventListener("click", () => {
+    removeGrid();
+    getGridSize();
+});
 
 
 
