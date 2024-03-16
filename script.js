@@ -12,17 +12,26 @@ function createGrid(numRows = 16, numColumns = numRows) {
 }
 
 function changeColour(square) {
-    const randomColour = "#" + (Math.floor(Math.random() * 16777215)).toString(16);    // from CSS-Tricks
-    square.style.backgroundColor = randomColour;
+    if (!square.style.backgroundColor) {
+        const randomColour = "#" + (Math.floor(Math.random() * 16777215)).toString(16);    // from CSS-Tricks
+        square.style.backgroundColor = randomColour;
+        square.style.opacity = "0.1";
+    }
+    else {
+        const currentOpacity = +(square.style.opacity);
+        if (currentOpacity < 1) {
+            square.style.opacity = `${currentOpacity + 0.1}`;
+        }
+    }
 }
 
 function setGridSize(userInput) {
     let gridValues = (userInput.split("x")).map((n) => parseInt(n));  // if separator "x" not in string, a one-element array with the original string is returned
     let numRows = gridValues[0];
-    let numColumns = gridValues[1];  // undefined if gridValues.length = 1
-    while (numRows > 100 || numColumns > 100) {  // undefined > 100 = false
+    let numColumns = gridValues[1]; // undefined if gridValues.length = 1
+    while (numRows > 100 || numColumns > 100) { // undefined > 100 = false
         userInput = prompt("The number of rows/columns have to be <= 100! Please choose again.");
-        if (!userInput) createGrid();  // if user presses cancel or returns "" the default 16x16 grid is generated (default values for numRows & numColumns)
+        if (!userInput) createGrid(); // if user presses cancel or returns "" the default 16x16 grid is generated (default values for numRows & numColumns)
         gridValues = (userInput.split("x")).map((n) => parseInt(n)); // if userInput = null; ERROR
         numRows = gridValues[0];
         numColumns = gridValues[1];
@@ -44,10 +53,10 @@ function addMousedownEvent() {
     gridSquares.forEach((square) => {
         square.addEventListener("mousedown", () => {
             if (sketchStarted) {
-                sketchStarted = false;  // stop sketch
+                sketchStarted = false; // stop sketch
             } else {
                 sketchStarted = true;
-                changeColour(square);  // start sketch
+                changeColour(square); // start sketch
             }
         });
     });
@@ -55,9 +64,7 @@ function addMousedownEvent() {
 function addMouseoverEvent() {
     gridSquares.forEach((square) => {
         square.addEventListener("mouseover", () => {
-            if (sketchStarted && !square.style.backgroundColor) {
-                changeColour(square);
-            }
+            if (sketchStarted) changeColour(square);
         });
     });
 }
@@ -69,14 +76,14 @@ gridSizeBtn.addEventListener("click", () => {
     removeGrid();
     setGridSize(input); // calls createGrid with new size parameters
     gridSquares = document.querySelectorAll(".square"); // updates gridSquares with the current NodeList of .square divs after the new grid is generated
-    sketchStarted = false;  // in case user did not click to stop drawing on the previous grid
+    sketchStarted = false; // in case user did not click to stop drawing on the previous grid
     addMousedownEvent(); 
     addMouseoverEvent(); // attach new event listeners to the new .square divs in updated gridSquares NodeList
 });
 
 // Initial 16x16 grid set-up
 const gridContainer = document.querySelector(".grid-container");
-createGrid();
+createGrid(); // 16x16 grid (default)
 
 let gridSquares = document.querySelectorAll(".square"); // NodeList(256) (after createGrid() call)
 let sketchStarted = false;
