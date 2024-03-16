@@ -39,16 +39,8 @@ function removeGrid() {
     });
 }
 
-const gridContainer = document.querySelector(".grid-container");
-let gridSquares = document.querySelectorAll(".square");
-let sketchStarted = false;
-
-createGrid();
-addMousedownEvent();
-addMouseoverEvent();
-
+// sketchStarted is initially set to false
 function addMousedownEvent() {
-    gridSquares = document.querySelectorAll(".square");  // get current NodeList of .square divs (in case they have been replaced when grid size is changed)
     gridSquares.forEach((square) => {
         square.addEventListener("mousedown", () => {
             if (sketchStarted) {
@@ -60,7 +52,6 @@ function addMousedownEvent() {
         });
     });
 }
-
 function addMouseoverEvent() {
     gridSquares.forEach((square) => {
         square.addEventListener("mouseover", () => {
@@ -76,10 +67,32 @@ gridSizeBtn.addEventListener("click", () => {
     const input = prompt("Choose a grid size (e.g., 30, 20x20, 20x30)", "16x16");
     if (!input) return;
     removeGrid();
-    setGridSize(input);
-    addMousedownEvent();  // updates gridSquares NodeList
-    addMouseoverEvent();  // has to come after so it uses updated gridSquares NodeList
+    setGridSize(input); // calls createGrid with new size parameters
+    gridSquares = document.querySelectorAll(".square"); // updates gridSquares with the current NodeList of .square divs after the new grid is generated
+    sketchStarted = false;  // in case user did not click to stop drawing on the previous grid
+    addMousedownEvent(); 
+    addMouseoverEvent(); // attach new event listeners to the new .square divs in updated gridSquares NodeList
 });
+
+// Initial 16x16 grid set-up
+const gridContainer = document.querySelector(".grid-container");
+createGrid();
+
+let gridSquares = document.querySelectorAll(".square"); // NodeList(256) (after createGrid() call)
+let sketchStarted = false;
+addMousedownEvent();
+addMouseoverEvent(); // attach event listeners to initial 16x16 grid
+
+
+
+
+
+
+
+
+
+
+
 
 
 
