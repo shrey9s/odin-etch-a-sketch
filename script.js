@@ -13,7 +13,7 @@ function createGrid(numRows = 16, numColumns = numRows) {
 
 function changeColour(square) {
     if (!square.style.backgroundColor) {
-        const randomColour = "#" + (Math.floor(Math.random() * 16777215)).toString(16);    // from CSS-Tricks
+        const randomColour = "#" + (Math.floor(Math.random() * 16777215)).toString(16); // from CSS-Tricks
         square.style.backgroundColor = randomColour;
         square.style.opacity = "0.1";
     }
@@ -26,7 +26,7 @@ function changeColour(square) {
 }
 
 function setGridSize(userInput) {
-    let gridValues = (userInput.split("x")).map((n) => parseInt(n));  // if separator "x" not in string, a one-element array with the original string is returned
+    let gridValues = (userInput.split("x")).map((n) => parseInt(n)); // if separator "x" not in string, a one-element array with the original string is returned
     let numRows = gridValues[0];
     let numColumns = gridValues[1]; // undefined if gridValues.length = 1
     while (numRows > 100 || numColumns > 100) { // undefined > 100 = false
@@ -37,6 +37,7 @@ function setGridSize(userInput) {
         numColumns = gridValues[1];
     }
     createGrid(numRows, numColumns);
+    document.querySelector(".grid-size").textContent = `${numRows} x ${(numColumns) ? numColumns : numRows}`;
 }
 // if user enters only one value (e.g., 45), numRows = 45 and undefined is passed for numColumns,
 // so numColumns is initialised with the default value -> numColumns = numRows = 45.

@@ -26,7 +26,6 @@ body {
     display: flex;
     flex-shrink: 0;
     flex-direction: column;
-    margin-top: 20px;
     border: 1px solid lightgray;
 }
 
@@ -44,4 +43,9 @@ body {
     padding: 12px 24px;
     font-size: 24px;
     font-family: "Pixelify Sans", sans-serif;
+}
+
+.grid-size {
+    margin: 20px 0 5px 0;
+    font-size: 20px;
 }
