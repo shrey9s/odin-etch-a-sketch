@@ -39,7 +39,7 @@ body {
     border: 1px solid lightgray;
 }
 
-.btn {
+.size-btn {
     padding: 12px 24px;
     font-size: 24px;
     font-family: "Pixelify Sans", sans-serif;
@@ -48,4 +48,10 @@ body {
 .grid-size {
     margin: 20px 0 5px 0;
     font-size: 20px;
+}
+
+.clear-btn {
+    margin-top: 10px;
+    font-size: 16px;
+    font-family: "Pixelify Sans", sans-serif;
 }

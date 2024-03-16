@@ -70,7 +70,7 @@ function addMouseoverEvent() {
     });
 }
 
-const gridSizeBtn = document.querySelector(".btn");
+const gridSizeBtn = document.querySelector(".size-btn");
 gridSizeBtn.addEventListener("click", () => {
     const input = prompt("Choose a grid size (e.g., 30, 20x20, 20x30)", "16x16");
     if (!input) return;
@@ -78,8 +78,17 @@ gridSizeBtn.addEventListener("click", () => {
     setGridSize(input); // calls createGrid with new size parameters
     gridSquares = document.querySelectorAll(".square"); // updates gridSquares with the current NodeList of .square divs after the new grid is generated
     sketchStarted = false; // in case user did not click to stop drawing on the previous grid
-    addMousedownEvent(); 
+    addMousedownEvent();
     addMouseoverEvent(); // attach new event listeners to the new .square divs in updated gridSquares NodeList
+});
+
+const clearBtn = document.querySelector(".clear-btn");
+clearBtn.addEventListener("click", () => {
+    gridSquares.forEach((square) => {
+        square.style.backgroundColor = "";
+        square.style.opacity = "";
+        sketchStarted = false;
+    });
 });
 
 // Initial 16x16 grid set-up
