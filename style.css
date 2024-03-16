@@ -14,19 +14,49 @@ body {
     margin: 0;
     height: 100vh;
     display: flex;
+    flex-direction: column;
+    background-color: #FFE17B ;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+.header, .footer {  
+    display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.header {
+    height: 100px;
+    font-size: 72px;
+}
+
+.footer {
+    height: 45px; 
+}
+
+.content {
+    flex: 1;
+    display: flex;
     flex-direction: column;
-    font-family: "Pixelify Sans", sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
+.instructions {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+
 }
 
 .grid-container {
     width: 610px;
     height: 610px;
     display: flex;
-    flex-shrink: 0;
     flex-direction: column;
-    border: 1px solid lightgray;
+    flex-shrink: 0;
+    border: 1px solid gray;
+    background-color: white;
 }
 
 .row {
