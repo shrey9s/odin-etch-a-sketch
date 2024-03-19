@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap');
 
 html {
     box-sizing: border-box;
@@ -15,38 +16,112 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #FFE17B ;
-    font-family: "Pixelify Sans", sans-serif;
-}
-
-.header, .footer {  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.header {
-    height: 100px;
-    font-size: 72px;
-}
-
-.footer {
-    height: 45px; 
+    background-color: #FFE17B;
+    font-family: "Cabin Sketch", sans-serif;
+    color: #009dff;
 }
 
 .content {
     flex: 1;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: space-evenly;
+    padding: 40px 0;
+}
+
+.btn {
+    border-top: 2px solid #dbf1ff;
+    border-left: 2px solid #dbf1ff;
+    border-right: 2px solid #009dff;
+    border-bottom: 2px solid #009dff;
+    background-color: white;
+    font-family: "Cabin Sketch", sans-serif;
+    color: #009dff;
+    cursor: pointer;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0px;
+    background-color: lightskyblue;
+    color: white;
+}
+
+/* --- left-side --- */
+
+.left-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
+.title {
+    font-size: 85px;
+    font-weight: 700;
 }
 
 .instructions {
-    font-size: 18px;
+    font-size: 20px;
     text-align: center;
-    margin-bottom: 20px;
+}
 
+.size-btn {
+    margin-top: 20px;
+    padding: 18px 20px;
+    box-shadow: 5px 8px 1px 1px lightskyblue;
+    font-size: 20px;
+}
+
+.size-btn:hover {
+    border: 2px solid #009dff;
+    background-color: #dbf1ff;
+}
+
+.size-btn:active {
+    border: 2px solid #009dff;
+    background-color: #dbf1ff;
+    box-shadow: 3px 5px 1px 1px #009dff;
+    transform: translate(2px, 3px);
+}
+
+/* --- right-side --- */
+
+.right-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px 20px 0;
+}
+
+.top-panel {
+    width: 610px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.grid-size {
+    font-size: 20px;
+}
+
+.clear-btn {
+    padding: 3px 15px;
+    font-size: 18px;
+}
+
+.clear-btn:hover {
+    background-color: #dbf1ff;
+}
+
+.clear-btn:active {
+    background-color: #dbf1ff;
+    transform: translate(1px, 1px);
 }
 
 .grid-container {
@@ -55,8 +130,12 @@ body {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    border: 1px solid gray;
+    border-top: 1px solid #dbf1ff;
+    border-left: 1px solid #dbf1ff;
+    border-right: 1px solid #009dff;
+    border-bottom: 1px solid #009dff;
     background-color: white;
+    box-shadow: 16px 16px 1px 1px lightskyblue;
 }
 
 .row {
@@ -66,22 +145,6 @@ body {
 
 .square {
     flex: 1;
-    border: 1px solid lightgray;
-}
-
-.size-btn {
-    padding: 12px 24px;
-    font-size: 24px;
-    font-family: "Pixelify Sans", sans-serif;
-}
-
-.grid-size {
-    margin: 20px 0 5px 0;
-    font-size: 20px;
-}
-
-.clear-btn {
-    margin-top: 10px;
-    font-size: 16px;
-    font-family: "Pixelify Sans", sans-serif;
+    border: 1px solid #dbf1ff;
+    cursor: pointer;
 }

@@ -26,7 +26,7 @@ function changeColour(square) {
 }
 
 function setGridSize(userInput) {
-    let gridValues = (userInput.split("x")).map((n) => parseInt(n)); // if separator "x" not in string, a one-element array with the original string is returned
+    let gridValues = (userInput.split("x")).map((n) => parseInt(n)); // if separator "x" not in string, a one-element array with the original string is returned by split()
     let numRows = gridValues[0];
     let numColumns = gridValues[1]; // undefined if gridValues.length = 1
     while (numRows > 100 || numColumns > 100) { // undefined > 100 = false
@@ -72,7 +72,7 @@ function addMouseoverEvent() {
 
 const gridSizeBtn = document.querySelector(".size-btn");
 gridSizeBtn.addEventListener("click", () => {
-    const input = prompt("Choose a grid size (e.g., 30, 20x20, 20x30)", "16x16");
+    const input = prompt("Choose a grid size (e.g., 64, 25x25, 20x30)", "16x16");
     if (!input) return;
     removeGrid();
     setGridSize(input); // calls createGrid with new size parameters
